@@ -3,9 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
     <title>Recipes app</title>
 </head>
 <body>
-    
+    <header class="header d-flex justify-content-between align-items-center">
+        <div class="header__block d-flex flex-column align-items-center">
+            <img src="images/icon.svg" alt="Icon pasta">
+            <p class="header__text fw-semibold text-uppercase">findtoeat</p>
+        </div>
+        <nav class="header__navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="recipe.html">Recipe</a>
+            <a href="favorites.html">Favorites</a>
+        </nav>
+        <div class="header__menu" data-bs-toggle="collapse" data-bs-target="#menuCollapse">
+            <div class="header__bar bar1"></div>
+            <div class="header__bar bar2"></div>
+            <div class="header__bar bar3"></div>
+        </div>
+        <div class="collapse menu-links position-absolute text-decoration-none" id="menuCollapse">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="btn btn-link active">Home</a></li>
+                        <li><a href="recipe.html" class="btn btn-link">Recipe</a></li>
+                        <li><a href="favorites.html" class="btn btn-link">Favorites</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="poster position-relative mb-5">
+        <img class="poster__img z-1 img-fluid position-relative object-fit-cover" src="images/poster.svg" alt="poster" height="347" width="100%">
+        <div class="poster__content z-3 position-absolute top-50 start-50 translate-middle d-flex flex-column justify-content-center align-items-center">
+            <h1 class="poster__text text-light text-shadow fw-bolder">Your desired dish?</h1>
+            <div class="poster__search d-flex position-relative">
+                <i class="poster__search-icon bx bxs-bowl-rice position-absolute"></i>
+                <input class="poster__search-input form-control fw-medium border-0" type="text">
+                <div class="poster__close-btn position-absolute right-12">&times;</div>
+                <button class="poster__btn d-flex justify-content-center align-items-center border-0">
+                    <i class="poster__btn-icon bx bx-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="categories d-flex flex-column justify-content-between align-items-center">
+        <button class="btn recipes__filters border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas">
+            Open Filters
+        </button>
+        <h1 class="categories__title fw-semibold">Categories</h1>
+        <div class="categories__container">
+            <div class="categories__carousel position-relative d-flex justify-content-center align-items-center">
+                <article class="categories__card">
+                    <img class="categories__card-img" src="images/vegetarian.svg" alt="Image vegetarian">
+                    <p class="categories__card-name">Vegetarian</p>
+                </article>
+                <article class="categories__card">
+                    <img class="categories__card-img" src="images/beef.svg" alt="Image beef">
+                    <p class="categories__card-name">Beef</p>
+                </article>
+                <article class="categories__card">
+                    <img class="categories__card-img" src="images/chicken.svg" alt="Image chicken">
+                    <p class="categories__card-name">Chicken</p>
+                </article>
+                <article class="categories__card">
+                    <img class="categories__card-img" src="images/dessert.svg" alt="Image dessert">
+                    <p class="categories__card-name">Dessert</p>
+                </article>
+                <article class="categories__card">
+                    <img class="categories__card-img" src="images/lamb.svg" alt="Image lamb">
+                    <p class="categories__card-name">Lamb</p>
+                </article>
+                <article class="categories__card">
+                    <img class="categories__card-img" src="images/pasta.svg" alt="Image pasta">
+                    <p class="categories__card-name">Pasta</p>
+                </article>
+                <article class="categories__card">
+                    <img class="categories__card-img" src="images/pork.svg" alt="Image pork">
+                    <p class="categories__card-name">Pork</p>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="recipes d-flex flex-column justify-content-between align-items-center">
+        <div class="recipes__offcanvas offcanvas offcanvas-end" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="filterOffcanvasLabel">Filters</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form id="filterForm" class="recipes__filter-form">
+                    <div class="recipes__filter mb-3">
+                        <label for="cuisineType" class="form-label">Cuisine</label>
+                        <select class="form-select" id="cuisineType" name="cuisine">
+                            <option value="">All</option>
+                            <option value="african">African</option>
+                            <option value="asian">Asian</option>
+                            <option value="american">American</option>
+                            <option value="british">British</option>
+                            <option value="cajun">Cajun</option>
+                            <option value="caribbean">Caribbean</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="eastern european">Eastern European</option>
+                            <option value="european">European</option>
+                            <option value="French">French</option>
+                            <option value="german">German</option>
+                            <option value="greek">Greek</option>
+                            <option value="indian">Indian</option>
+                            <option value="irish">Irish</option>
+                            <option value="italian">Italian</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="jewish">Jewish</option>
+                            <option value="korean">Korean</option>
+                            <option value="latin american">Latin American</option>
+                            <option value="mediterranean">Mediterranean</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="middle eastern">Middle Eastern</option>
+                            <option value="nordic">Nordic</option>
+                            <option value="southern">Southern</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="thai">Thai</option>
+                            <option value="vietnamese">Vietnamese</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 recipes__filter">
+                        <label for="mealType" class="form-label">Meal Type</label>
+                        <select class="form-select" id="mealType" name="meal">
+                            <option value="">All</option>
+                            <option value="main course">main course</option>
+                            <option value="side dish">side dish</option>
+                            <option value="dessert">dessert</option>
+                            <option value="appetizer">appetizer</option>
+                            <option value="salad">salad</option>
+                            <option value="bread">bread</option>
+                            <option value="breakfast">breakfast</option>
+                            <option value="soup">soup</option>
+                            <option value="beverage">beverage</option>
+                            <option value="sauce">sauce</option>
+                            <option value="marinade">marinade</option>
+                            <option value="fingerfood">fingerfood</option>
+                            <option value="snack">snack</option>
+                            <option value="drink">drink</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 recipes__filter">
+                        <label for="intolerances" class="form-label">Intolerances</label>
+                        <select class="form-select" id="intolerances" name="intolerances">
+                            <option value="">Nothing</option>
+                            <option value="dairy">Dairy</option>
+                            <option value="egg">Egg</option>
+                            <option value="gluten">Gluten</option>
+                            <option value="grain">Grain</option>
+                            <option value="peanut">Peanut</option>
+                            <option value="seafood">Seafood</option>
+                            <option value="sesame">Sesame</option>
+                            <option value="shellfish">Shellfish</option>
+                            <option value="soy">Soy</option>
+                            <option value="sulfite">Sulfite</option>
+                            <option value="tree Nut">Tree Nut</option>
+                            <option value="wheat">Wheat</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 recipes__filter">
+                        <label for="calories" class="form-label">Calories (Max)</label>
+                        <input type="number" class="form-control" id="calories" name="maxCalories">
+                    </div>
+                    <div class="mb-3 recipes__filter">
+                        <label for="time" class="form-label">Preparation Time (Max, minutes)</label>
+                        <input type="number" class="form-control" id="time" name="maxTime">
+                    </div>
+                    <button type="submit" class="btn recipes__new-filters border-0">Apply Filters</button>
+              </form>
+            </div>
+        </div>
+        <div class="recipes__container d-flex justify-content-center flex-wrap"></div>
+        <nav class="recipes__pagination" aria-label="Page navigation">
+            <ul class="pagination pagination-lg"></ul>
+        </nav>
+    </div>
+    <footer class="footer d-flex justify-content-between align-items-center">
+        <div class="footer__main-icon d-flex justify-content-between align-items-center">
+            <img src="images/icon.svg" alt="Icon pasta" height="33" width="70.5">
+            <p class="footer__text fw-semibold text-uppercase">findtoeat</p>
+        </div>
+        <div class="footer__social-networks d-flex justify-content-between">
+            <img src="images/facebook.svg" alt="Icon facebook" width="36" height="36">
+            <img src="images/instagram.svg" alt="Icon instagram" width="36" height="36">
+            <img src="images/gmail.svg" alt="Icon gmail" width="36" height="36">
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="jquery-3.7.1.min.js"></script>
 </body>
 </html>
