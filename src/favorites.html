@@ -3,9 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="favorites.css">
+    <link rel="stylesheet" href="style.css">
     <title>Recipes app</title>
 </head>
 <body>
-    
+    <header class="header d-flex justify-content-between align-items-center">
+        <div class="header__block d-flex flex-column align-items-center">
+            <img src="images/icon.svg" alt="Icon pasta">
+            <p class="header__text fw-semibold text-uppercase">findtoeat</p>
+        </div>
+        <nav class="header__navbar">
+            <a href="index.html">Home</a>
+            <a href="recipe.html">Recipe</a>
+            <a href="favorites.html" class="active">Favorites</a>
+        </nav>
+        <div class="header__menu" data-bs-toggle="collapse" data-bs-target="#menuCollapse">
+            <div id="bar1" class="header__bar bar1"></div>
+            <div id="bar2" class="header__bar bar2"></div>
+            <div id="bar3" class="header__bar bar3"></div>
+          </div>
+        <div class="collapse menu-links position-absolute text-decoration-none" id="menuCollapse">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="btn btn-link">Home</a></li>
+                        <li><a href="recipe.html" class="btn btn-link">Recipe</a></li>
+                        <li><a href="favorites.html" class="btn btn-link active">Favorites</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <p class="title text-center fw-semibold">Favorites</p>
+    <div class="favorites d-flex flex-column justify-content-between align-items-center">
+        <div class="favorites__container d-flex justify-content-center flex-wrap"></div>
+        <nav class="favorites__pagination" aria-label="Page navigation">
+            <ul class="pagination pagination-lg"></ul>
+        </nav>
+    </div>
+    <footer class="footer d-flex justify-content-between align-items-center">
+        <div class="footer__main-icon d-flex justify-content-between align-items-center">
+            <img src="images/icon.svg" alt="Icon pasta" height="33" width="70.5">
+            <p class="footer__text fw-semibold text-uppercase">findtoeat</p>
+        </div>
+        <div class="footer__social-networks d-flex justify-content-between">
+            <img src="images/facebook.svg" alt="Icon facebook" width="36" height="36">
+            <img src="images/instagram.svg" alt="Icon instagram" width="36" height="36">
+            <img src="images/gmail.svg" alt="Icon gmail" width="36" height="36">
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="favorites.js"></script>
 </body>
 </html>
