@@ -1,0 +1,358 @@
+.poster::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(10, 34, 64, 0.632) 100%);
+}
+
+.poster__text {
+    font-size: 50px;
+    color: var(--color-background);
+    margin-bottom: 25px;
+    text-shadow: 1px 2px 6px var(--color-black);
+}
+
+.poster__search {
+    overflow-y: hidden;
+}
+
+.poster__search-icon {
+    font-size: 40px;
+    top: 8px;
+    left: 3px;
+}
+
+.poster__search-input {
+    width: 500px;
+    height: 55px;
+    padding-inline: 60px 10px;
+    border-radius: 7px 0 0 7px;
+}
+
+.poster__close-btn {
+    font-size: 37px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.poster__close-btn.active {
+    opacity: 1;
+    animation: animate 0.5s linear;
+}
+
+.poster__btn {
+    height: 55px;
+    width: 55px;
+    background-color: var(--color-btn);
+    border-radius: 0 7px 7px 0;
+}
+
+.poster__btn-icon {
+    font-size: 35px;
+}
+
+.categories {
+    width: 100%;
+}
+
+.recipes__filters {
+    position: absolute;
+    right: 3%;
+    background-color: var(--color-btn) !important;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--color-text)
+}
+
+.recipes__filters:hover {
+    transform: scale(1.1);
+}
+
+.categories__container {
+    width: 94%;
+    height: 150px;
+}
+
+.categories__title {
+    color: var(--color-text);
+    margin-bottom: 24px;
+}
+
+.categories__carousel {
+    width: 100%;
+    gap: 30px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.categories__card {
+    background-color: var(--color-category);
+    min-width: 129px;
+    min-height: 126px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px 0px var(--color-shadow-category);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: scroll-left 10s linear infinite;
+}
+
+.categories__card.reverse {
+    animation: scroll-right 10s linear infinite;
+}
+
+.categories__card:hover {
+    transform: scale(1.1);
+}
+
+.categories__card.active {
+    border: 3px solid var(--color-btn);
+    box-shadow: 0 0 10px var(--color-btn);
+    transform: scale(1.1);
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(120%);
+    }
+    100% {
+        transform: translateX(-120%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-120%);
+    }
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+.categories__card-name {
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 700;
+    text-shadow: 0px 2px 5px var(--color-text-shadow);
+}
+
+.recipes {
+    width: 100%;
+    min-height: 1300px;
+    margin: 68px 0 92px;
+}
+
+.recipes__offcanvas {
+    background-color: var(--color-header);
+    color: var(--color-header-text);
+}
+
+.offcanvas-title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.recipes__filter-form {
+    overflow-y: hidden;
+}
+
+.recipes__filter-form label {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.form-select,
+option,
+.form-control {
+    font-size: 20px;
+    background-color: var(--color-background);
+}
+
+.recipes__new-filters {
+    background-color: var(--color-btn) !important;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.recipes__new-filters:hover {
+    transform: scale(1.02);
+    color: var(--color-text);
+}
+
+.recipes__container {
+    max-width: 1110px;
+    min-height: 1210px;
+    gap: 39px 20px;
+    padding: 15px 0;
+}
+
+.recipes__card {
+    width: 352px;
+    height: 362px;
+    box-shadow: 0px 8px 16px 0px var(--color-shadow-recipe);
+    background-color: var(--color-white);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.recipes__card:hover {
+    animation: jump 0.5s ease;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.recipes__card-description {
+    width: 100%;
+    height: 126px;
+    padding: 5px 24px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.recipes__card-title {
+    font-size: 20px;
+    color: #363636;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1400px) {
+
+    .offcanvas-title {
+        font-size: 20px;
+    }
+
+    .recipes__filter-form label {
+        font-size: 16px;
+    }
+
+    .poster__search-input.form-control {
+        font-size: 20px;
+    }
+
+    .form-select,
+    .form-control
+    option {
+        font-size: 14px;
+    }
+
+    .recipes__new-filters {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px) {
+
+    .poster__img {
+        height: 208px;
+    }
+
+    .poster__text {
+        font-size: 30px;
+    }
+
+    .poster__btn,
+    .poster__search-input {
+        height: 35px;
+    }
+
+    .poster__search-input {
+        width: 300px;
+        padding-left: 40px;
+    }
+
+    .poster__close-btn {
+        right: 17%;
+        top: -20%;
+        font-size: 30px;
+    }
+
+    .poster__search-input.form-control {
+        font-size: 17px;
+    }
+
+    .poster__search-icon {
+        font-size: 30px;
+        top: 3px;
+    }
+
+    .poster__btn-icon {
+        font-size: 30px;
+    }
+
+    .categories__title {
+        font-weight: 700;
+        font-size: 26px;
+    }
+
+    .recipes__filters {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    .recipes__offcanvas {
+        width: 50% !important;
+    }
+
+    .offcanvas-header {
+        padding: 5px 15px 1px;
+        margin-bottom: 0;
+        overflow-y: hidden;
+    }
+
+    .offcanvas-body {
+        padding-top: 5px;
+        overflow-y: hidden;
+    }
+
+    .recipes__filter.mb-3 {
+        margin-bottom: 4px !important;
+    }
+
+    .offcanvas-title {
+        font-size: 16px;
+        padding: 0;
+    }
+
+    .recipes__filter-form label {
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    .form-select,
+    .form-control,
+    option {
+        font-size: 9px;
+    }
+
+    .recipes__new-filters {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
