@@ -16,7 +16,6 @@ import $ from 'jquery';
 
 $(document).ready(function() {
     const apiKey = process.env.API_KEY;
-    console.log(apiKey);
     let itemsPerPage = getItemsPerPage();
     let currentPage = 1;
     let totalRecipes = 0;
